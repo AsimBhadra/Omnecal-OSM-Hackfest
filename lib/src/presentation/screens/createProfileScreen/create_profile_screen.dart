@@ -232,7 +232,11 @@ class _CreateProfileScreenFormState extends State<CreateProfileScreenForm> {
               successColor: AppColors.greenColor,
               iconData: PhosphorIcons.signIn,
               onPressed: () {
-                context.router.replaceNamed('/home-screen');
+                if (usernameOrEmailController.text.isNotEmpty) {
+                  context.router.pushNamed('/home-screen');
+                } else {
+                  signUpController.reset();
+                }
               },
               successIcon: PhosphorIcons.check,
               controller: signUpController,

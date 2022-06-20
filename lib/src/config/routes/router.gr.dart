@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
-import '../../screens.dart' as _i1;
+import '../../../screens.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
   AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
@@ -40,6 +40,10 @@ class AppRouter extends _i2.RootStackRouter {
     OTPScreen.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.OTPScreen());
+    },
+    HomeScreen.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.HomeScreen());
     }
   };
 
@@ -51,7 +55,8 @@ class AppRouter extends _i2.RootStackRouter {
             path: '/create-profile-screen'),
         _i2.RouteConfig(ResetPasswordScreen.name,
             path: '/reset-password-screen'),
-        _i2.RouteConfig(OTPScreen.name, path: '/o-tp-screen')
+        _i2.RouteConfig(OTPScreen.name, path: '/o-tp-screen'),
+        _i2.RouteConfig(HomeScreen.name, path: '/home-screen')
       ];
 }
 
@@ -95,4 +100,12 @@ class OTPScreen extends _i2.PageRouteInfo<void> {
   const OTPScreen() : super(OTPScreen.name, path: '/o-tp-screen');
 
   static const String name = 'OTPScreen';
+}
+
+/// generated route for
+/// [_i1.HomeScreen]
+class HomeScreen extends _i2.PageRouteInfo<void> {
+  const HomeScreen() : super(HomeScreen.name, path: '/home-screen');
+
+  static const String name = 'HomeScreen';
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omnecal/config/routes/router.gr.dart';
-import 'package:omnecal/config/theme/app_theme.dart';
+import 'package:omnecal/src/config/routes/router.gr.dart';
+import 'package:omnecal/src/config/theme/app_theme.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);

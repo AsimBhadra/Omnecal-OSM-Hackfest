@@ -40,10 +40,21 @@ class LoginScreenLocation extends StatelessWidget {
           SizedBox(
             width: 11.w,
           ),
-          Text(
-            'Kathmandu, Nepal',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
+          FutureBuilder(
+              future: LocationService().getUserLocation(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
+                    snapshot.data as String,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  );
+                } else {
+                  return Text(
+                    'Loading...',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  );
+                }
+              }),
         ],
       ),
     );
@@ -117,7 +128,7 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
               iconData: FeatherIcons.user,
               focusNode: usernameOrEmailFocusNode,
               validator: (String? value) {
-                if (value!.isEmpty) return 'Mandatory Field';
+                if (value!.isEmpty) return 'Please enter username or email';
 
                 return null;
               },
@@ -136,7 +147,7 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
               isLast: false,
               bottomMargin: 15.h,
               validator: (String? value) {
-                if (value!.isEmpty) return 'Mandatory Field';
+                if (value!.isEmpty) return 'Please enter password';
 
                 return null;
               },
@@ -179,7 +190,13 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
                 errorColor: AppColors.redColor,
                 successColor: AppColors.greenColor,
                 iconData: PhosphorIcons.googleLogo,
-                onPressed: () {},
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    context.router.pushNamed('/home-screen');
+                  } else {
+                    loginButtonController.reset();
+                  }
+                },
                 successIcon: PhosphorIcons.check,
                 controller: loginButtonController,
                 child: Text(

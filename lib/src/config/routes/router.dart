@@ -9,6 +9,7 @@ import 'package:omnecal/screens.dart';
     AutoRoute(page: CreateProfileScreen),
     AutoRoute(page: ResetPasswordScreen),
     AutoRoute(page: OTPScreen),
+    AutoRoute(page: HomeScreen),
   ],
 )
 class $AppRouter {}
