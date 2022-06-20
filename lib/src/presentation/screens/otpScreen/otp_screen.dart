@@ -14,7 +14,7 @@ class OTPScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const OTPScreenHeader(),
-                OTPField(),
+                const OTPField(),
                 OTPOptions(),
               ],
             ),
@@ -56,83 +56,72 @@ class OTPScreenHeader extends StatelessWidget {
   }
 }
 
-class OTPField extends StatelessWidget {
-  OTPField({Key? key}) : super(key: key);
+class OTPField extends StatefulWidget {
+  const OTPField({Key? key}) : super(key: key);
 
-  final TextEditingController controller = TextEditingController();
-  final FocusNode focusNode = FocusNode();
+  @override
+  State<OTPField> createState() => _OTPFieldState();
+}
 
-  final defaultPinTheme = PinTheme(
-    width: 56,
-    height: 56,
-    textStyle: GoogleFonts.dmSans(
-      fontSize: 24.sp,
-      fontWeight: FontWeight.bold,
-      color: AppColors.whiteColor,
-    ),
-  );
-
-  final lol = PinTheme(
-    width: 56,
-    height: 56,
-    textStyle: GoogleFonts.dmSans(
-      fontSize: 24.sp,
-      fontWeight: FontWeight.bold,
-      color: AppColors.whiteColor,
-    ),
-    decoration: BoxDecoration(
-      border: Border(
-        bottom: BorderSide(
-          width: 2.h,
-          color: AppColors.whiteColor.withOpacity(0.2),
-        ),
-      ),
-    ),
-  );
-
-  final cursor = Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Container(
-        width: 65.w,
-        height: 2.h,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-        ),
-      ),
-    ],
-  );
-
-  final preFilledWidget = Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Container(
-        width: 65.w,
-        height: 2.h,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-        ),
-      ),
-    ],
-  );
-
+class _OTPFieldState extends State<OTPField> {
+  TextEditingController textEditingController = TextEditingController();
+  StreamController<ErrorAnimationType>? errorController;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 40.h),
-      child: Center(
-        child: Pinput(
-          length: 4,
-          pinAnimationType: PinAnimationType.slide,
-          controller: controller,
-          focusNode: focusNode,
-          defaultPinTheme: defaultPinTheme,
-          showCursor: true,
-          cursor: cursor,
-          preFilledWidget: preFilledWidget,
-          hapticFeedbackType: HapticFeedbackType.mediumImpact,
-          submittedPinTheme: lol,
-        ),
+      margin: EdgeInsets.symmetric(vertical: 15.h),
+      child: Form(
+        child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 8.0.h,
+              horizontal: 30.w,
+            ),
+            child: PinCodeTextField(
+              appContext: context,
+              pastedTextStyle: TextStyle(
+                color: Colors.green.shade600,
+                fontWeight: FontWeight.bold,
+              ),
+              length: 4,
+              animationType: AnimationType.fade,
+              validator: (v) {
+                if (v!.length != 4) {
+                  return "Imput the OTP code";
+                } else {
+                  return null;
+                }
+              },
+              pinTheme: PinTheme(
+                selectedColor: Colors.transparent,
+                inactiveColor: Colors.transparent,
+                selectedFillColor: AppColors.whiteColor.withOpacity(0.5),
+                inactiveFillColor: AppColors.whiteColor.withOpacity(0.2),
+                shape: PinCodeFieldShape.underline,
+                borderRadius: BorderRadius.circular(20),
+                fieldHeight: 50,
+                fieldWidth: 50,
+                activeFillColor: AppColors.whiteColor.withOpacity(0.7),
+                activeColor: Colors.transparent,
+              ),
+              textStyle: Theme.of(context).textTheme.headline1!.copyWith(
+                    fontSize: 18,
+                    color: AppColors.backgroundColor,
+                  ),
+              cursorColor: AppColors.whiteColor,
+              animationDuration: const Duration(milliseconds: 300),
+              enableActiveFill: true,
+              errorAnimationController: errorController,
+              controller: textEditingController,
+              keyboardType: TextInputType.number,
+              onCompleted: (v) {
+                debugPrint("Completed");
+              },
+              onChanged: (value) {},
+              beforeTextPaste: (text) {
+                debugPrint("Allowing to paste $text");
+                return true;
+              },
+            )),
       ),
     );
   }
