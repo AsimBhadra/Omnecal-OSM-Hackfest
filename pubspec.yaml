@@ -33,10 +33,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.5.3+2
+  flutter_svg: ^1.1.0
+  fluttericon: ^2.0.0
   geocoding: ^2.0.4
   geolocator: ^8.2.1
   google_fonts: ^3.0.1
   icon_loading_button: ^1.0.1
+  persistent_bottom_nav_bar: ^4.0.2
   phosphor_flutter: ^1.4.0
   pin_code_fields: ^7.4.0
 
@@ -57,6 +60,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/flags/
+    - assets/images/
+    - assets/icons/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

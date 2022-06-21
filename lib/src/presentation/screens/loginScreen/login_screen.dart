@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: const <Widget>[
                 LoginScreenLocation(),
                 LoginScreenHeader(),
@@ -71,9 +72,10 @@ class LoginScreenHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 66.h),
+      margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 60.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             welcomeText,
@@ -119,6 +121,7 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               height: 30.h,
@@ -192,7 +195,7 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
                 iconData: PhosphorIcons.googleLogo,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    context.router.pushNamed('/home-screen');
+                    context.router.replaceNamed('/home-screen');
                   } else {
                     loginButtonController.reset();
                   }

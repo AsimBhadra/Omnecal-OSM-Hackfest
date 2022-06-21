@@ -61,8 +61,8 @@ class AppTheme {
       appBarTheme: AppBarTheme(
           color: AppColors.backgroundColor,
           elevation: 0,
-          iconTheme: const IconThemeData(
-            color: AppColors.mainSwatch,
+          iconTheme: IconThemeData(
+            color: AppColors.whiteColor,
           )),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
