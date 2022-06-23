@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:omnecal/src/app_colors.dart';
+import 'package:omnecal/app_colors.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {

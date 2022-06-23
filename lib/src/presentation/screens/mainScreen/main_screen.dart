@@ -504,23 +504,24 @@ class PlanTripWidget extends StatelessWidget {
             height: 35.h,
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () {
-                  context.router.pushNamed('/plan-trip-screen');
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
+              onPressed: () {
+                context.router.pushNamed('/plan-trip-screen');
+              },
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
-                child: Text(
-                  'GET STARTED',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: AppColors.whiteColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                )),
+              ),
+              child: Text(
+                'GET STARTED',
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      color: AppColors.whiteColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ),
           ),
         ],
       ),

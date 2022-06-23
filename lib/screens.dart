@@ -1,14 +1,18 @@
 library screens;
 
 import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:icon_loading_button/icon_loading_button.dart';
-import 'package:omnecal/src/app_colors.dart';
+import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:omnecal/app_colors.dart';
 import 'package:omnecal/src/presentation/widgets/customTextField/custom_text_field.dart';
 import 'package:omnecal/src/services/location/location.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -16,7 +20,9 @@ import 'package:fluttericon/elusive_icons.dart';
 import 'package:fluttericon/mfg_labs_icons.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'src/presentation/widgets/loadingWidget/loading_widget.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 
 part 'src/presentation/screens/splashScreen/splash_screen.dart';
 part 'src/presentation/screens/loginScreen/login_screen.dart';
@@ -26,3 +32,4 @@ part 'src/presentation/screens/otpScreen/otp_screen.dart';
 part 'src/presentation/screens/homescreen/homescreen.dart';
 part 'src/presentation/screens/planTripScreen/plan_trip_screen.dart';
 part 'src/presentation/screens/mainScreen/main_screen.dart';
+part 'src/presentation/screens/tripPlannerScreen/trip_planner_screen.dart';

@@ -48,7 +48,7 @@ class AppRouter extends _i2.RootStackRouter {
     PlanTripScreen.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.PlanTripScreen());
-    }
+    },
   };
 
   @override
@@ -61,7 +61,8 @@ class AppRouter extends _i2.RootStackRouter {
             path: '/reset-password-screen'),
         _i2.RouteConfig(OTPScreen.name, path: '/o-tp-screen'),
         _i2.RouteConfig(HomeScreen.name, path: '/home-screen'),
-        _i2.RouteConfig(PlanTripScreen.name, path: '/plan-trip-screen')
+        _i2.RouteConfig(PlanTripScreen.name, path: '/plan-trip-screen'),
+        _i2.RouteConfig(TripPlannerScreen.name, path: '/trip-planner-screen')
       ];
 }
 
@@ -122,4 +123,13 @@ class PlanTripScreen extends _i2.PageRouteInfo<void> {
       : super(PlanTripScreen.name, path: '/plan-trip-screen');
 
   static const String name = 'PlanTripScreen';
+}
+
+/// generated route for
+/// [_i1.TripPlannerScreen]
+class TripPlannerScreen extends _i2.PageRouteInfo<void> {
+  const TripPlannerScreen()
+      : super(TripPlannerScreen.name, path: '/trip-planner-screen');
+
+  static const String name = 'TripPlannerScreen';
 }

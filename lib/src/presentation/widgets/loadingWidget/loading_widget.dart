@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:omnecal/src/app_colors.dart';
+import 'package:omnecal/app_colors.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
